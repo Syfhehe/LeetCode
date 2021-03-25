@@ -32,9 +32,7 @@ public class BinaryTreeTest {
     System.out.println("------------------");
     binaryTree.front();
     System.out.println("------------------");
-    binaryTree.delete(3);
+    binaryTree.delete(4);
     binaryTree.front();
-
-
   }
 }

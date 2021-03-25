@@ -13,15 +13,21 @@ public class BinaryTree {
   }
 
   public void front() {
-    root.front();
+    if (root != null) {
+      root.front();
+    }
   }
 
   public void mid() {
-    root.mid();
+    if (root != null) {
+      root.mid();
+    }
   }
 
   public void after() {
-    root.after();
+    if (root != null) {
+      root.after();
+    }
   }
 
   public TreeNode frontSearch(int val) {
@@ -29,7 +35,11 @@ public class BinaryTree {
   }
 
   public void delete(int i) {
-    root.delete(i);
+    if (root.value == i) {
+      root = null;
+    } else {
+      root.delete(i);
+    }
   }
 
 
