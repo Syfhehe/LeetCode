@@ -19,11 +19,15 @@ public class BinaryTreeTest {
     right.setlNode(left2);
     right.setrNode(right2);
 
-    root.front();
+    binaryTree.front();
     System.out.println("------------------");
-    root.mid();
+    binaryTree.mid();
     System.out.println("------------------");
-    root.after();
+    binaryTree.after();
+    System.out.println("------------------");
+
+    TreeNode resultNode = binaryTree.frontSearch(3);
+    System.out.println(resultNode == right);
 
   }
 }

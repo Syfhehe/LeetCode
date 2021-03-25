@@ -12,5 +12,20 @@ public class BinaryTree {
     this.root = root;
   }
 
+  public void front() {
+    root.front();
+  }
 
+  public void mid() {
+    root.mid();
+  }
+
+  public void after() {
+    root.after();
+  }
+
+  public TreeNode frontSearch(int val) {
+    return root.frontSearch(val);
+  }
+  
 }

@@ -19,7 +19,7 @@ public class TreeNode {
 
   public void front() {
     System.out.println(this.value);
-    
+
     if (lNode != null) {
       lNode.front();
     }
@@ -47,8 +47,30 @@ public class TreeNode {
     if (rNode != null) {
       rNode.after();
     }
-    
+
     System.out.println(this.value);
+  }
+
+  //≤È’“
+  public TreeNode frontSearch(int val) {
+    TreeNode target = null;
+    if (this.value == val) {
+      return this;
+    } else {
+      if (lNode != null) {
+        target = lNode.frontSearch(val);
+      }
+      if (target != null) {
+        return target;
+      }
+      if (rNode != null) {
+        target = rNode.frontSearch(val);
+      }
+      if (target != null) {
+        return target;
+      }
+    }
+    return target;
   }
 
 }
