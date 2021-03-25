@@ -51,7 +51,7 @@ public class TreeNode {
     System.out.println(this.value);
   }
 
-  //²éÕÒ
+  // ²éÕÒ
   public TreeNode frontSearch(int val) {
     TreeNode target = null;
     if (this.value == val) {
@@ -71,6 +71,32 @@ public class TreeNode {
       }
     }
     return target;
+  }
+
+  // É¾³ý×ÓÊ÷
+  public void delete(int i) {
+    TreeNode parentNode = this;
+    // ×ó¶ù×Ó
+    if (parentNode.lNode != null && parentNode.lNode.value == i) {
+      parentNode.lNode = null;
+      return;
+    }
+    // ÓÒ¶ù×Ó
+    if (parentNode.rNode != null && parentNode.rNode.value == i) {
+      parentNode.rNode = null;
+      return;
+    }
+    // µÝ¹é¼ì²é²¢É¾³ý×ó¶ù×Ó
+    parentNode = lNode;
+    if (parentNode != null) {
+      parentNode.delete(i);
+    }
+    // µÝ¹é¼ì²é²¢É¾³ýÓÒ¶ù×Ó
+    parentNode = rNode;
+    if (parentNode != null) {
+      parentNode.delete(i);
+    }
+
   }
 
 }

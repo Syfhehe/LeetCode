@@ -28,6 +28,13 @@ public class BinaryTreeTest {
 
     TreeNode resultNode = binaryTree.frontSearch(3);
     System.out.println(resultNode == right);
+    
+    System.out.println("------------------");
+    binaryTree.front();
+    System.out.println("------------------");
+    binaryTree.delete(3);
+    binaryTree.front();
+
 
   }
 }

@@ -27,5 +27,10 @@ public class BinaryTree {
   public TreeNode frontSearch(int val) {
     return root.frontSearch(val);
   }
-  
+
+  public void delete(int i) {
+    root.delete(i);
+  }
+
+
 }
