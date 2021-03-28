@@ -10,17 +10,17 @@ public class HuffmanTreeTest {
 		createHuffmanTree(arr);
 	}
 
-	public static Node createHuffmanTree(int[] arr) {
-		List<Node> nodes = new ArrayList<>();
+	public static HuffmanNode createHuffmanTree(int[] arr) {
+		List<HuffmanNode> nodes = new ArrayList<>();
 		for (int value : arr) {
-			nodes.add(new Node(value));
+			nodes.add(new HuffmanNode(value));
 		}
 
 		while (nodes.size() > 1) {
 			Collections.sort(nodes);
-			Node left = nodes.get(nodes.size() - 1);
-			Node right = nodes.get(nodes.size() - 2);
-			Node parent = new Node(left.value + right.value);
+			HuffmanNode left = nodes.get(nodes.size() - 1);
+			HuffmanNode right = nodes.get(nodes.size() - 2);
+			HuffmanNode parent = new HuffmanNode(left.value + right.value);
 			nodes.remove(left);
 			nodes.remove(right);
 			nodes.add(parent);
