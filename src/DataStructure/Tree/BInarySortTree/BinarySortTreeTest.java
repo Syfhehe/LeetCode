@@ -21,6 +21,8 @@ public class BinarySortTreeTest {
     tree.midShow();
     tree.delete(10);
     tree.midShow();
+    tree.delete(7);
+    tree.midShow();
 
   }
 }

@@ -34,16 +34,17 @@ public class BinarySortTree {
       }
       // 找到父节点
       Node parent = searchParnet(value);
-      //没有子节点
+      // 没有子节点
       if (targetNode.leftNode == null && targetNode.rightNode == null) {
         if (parent.leftNode.value == value) {
           parent.leftNode = null;
         } else {
           parent.rightNode = null;
         }
-      } else if (targetNode.leftNode != null && targetNode.rightNode != null) { //双子节点
-
-      } else { //单个子节点
+      } else if (targetNode.leftNode != null && targetNode.rightNode != null) { // 双子节点
+        int min = deleteMin(targetNode.rightNode);
+        targetNode.value = min;
+      } else { // 单个子节点
         if (targetNode.leftNode != null) {
           if (parent.leftNode.value == value) {
             parent.leftNode = targetNode.leftNode;
@@ -59,6 +60,16 @@ public class BinarySortTree {
         }
       }
     }
+  }
+
+  private int deleteMin(Node node) {
+    // TODO Auto-generated method stub
+    Node targetNode = node;
+    while (targetNode.leftNode != null) {
+      targetNode = targetNode.leftNode;
+    }
+    delete(targetNode.value);
+    return targetNode.value;
   }
 
   public Node searchParnet(int value) {
