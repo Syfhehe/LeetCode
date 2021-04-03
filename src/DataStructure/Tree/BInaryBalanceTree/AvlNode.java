@@ -42,11 +42,21 @@ public class AvlNode implements Comparable<AvlNode> {
     // 查询是否平衡
     // 右旋转
     if (leftNode != null && rightNode != null && leftNode.height() - rightNode.height() >= 2) {
-      rightRorate();
+      if (leftNode != null && leftNode.leftNode.height() < leftNode.rightNode.height()) {
+        leftNode.leftRorate();
+        rightRorate();
+      } else {
+        rightRorate();
+      }
     }
     // 左旋转
     if (leftNode != null && rightNode != null && leftNode.height() - rightNode.height() <= -2) {
-      leftRorate();
+      if (rightNode != null && rightNode.rightNode.height() < rightNode.leftNode.height()) {
+        rightNode.rightRorate();
+        leftRorate();
+      } else {
+        leftRorate();
+      }
     }
   }
 
