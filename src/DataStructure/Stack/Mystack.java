@@ -28,13 +28,20 @@ public class Mystack {
     elements = newArr;
     return element;
   }
-  
+
   public int peak() {
-    return elements[elements.length-1];
+    return elements[elements.length - 1];
   }
-  
+
   public void name() {
-    
+
+  }
+
+  public boolean isEmpty() {
+    if (elements.length > 0) {
+      return false;
+    }
+    return true;
   }
 
 }

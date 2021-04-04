@@ -27,6 +27,8 @@ public class GraphTest {
     for (int[] a:g1.adjMat) {
       System.out.println(Arrays.toString(a));
     }
+    
+    g1.dfs();
   }
 
 }
