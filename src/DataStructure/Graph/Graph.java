@@ -1,5 +1,6 @@
 package DataStructure.Graph;
 
+import DataStructure.Queue.MyQueue;
 import DataStructure.Stack.Mystack;
 
 public class Graph {
@@ -7,6 +8,8 @@ public class Graph {
   private int currentSize;
   public int[][] adjMat;
   public Mystack stack = new Mystack();
+  public MyQueue queue = new MyQueue();
+
   private int currentIndex;
 
   public Graph(int size) {
@@ -43,7 +46,7 @@ public class Graph {
   }
 
   // 深度优先算法
-  public void dfs() {
+  public void DFS() {
     vertexs[0].setVisited(true);
     stack.push(0);
     System.out.println(vertexs[0].getValue());
@@ -53,6 +56,7 @@ public class Graph {
           stack.push(i);
           vertexs[i].setVisited(true);
           System.out.println(vertexs[i].getValue());
+          currentIndex = stack.peak();
           continue out;
         }
       }
@@ -65,8 +69,26 @@ public class Graph {
   }
 
   // 广度优先算法
-  private void wfs() {
+  public void BFS() {
+    vertexs[0].setVisited(true);
+    queue.add(0);
+    System.out.println(vertexs[0].getValue());
+    while (!queue.isEmpty()) {
+      for (int i = currentIndex + 1; i < vertexs.length; i++) {
+        if (adjMat[currentIndex][i] == 1 && vertexs[i].isVisited() == false) {
+          queue.add(i);
+          vertexs[i].setVisited(true);
+          System.out.println(vertexs[i].getValue());
+        }
+      }
+      // 弹出队列的第一个元素
 
+      if (!queue.isEmpty()) {
+        currentIndex = queue.poll();
+      } else {
+        break;
+      }
+    }
   }
 
 
